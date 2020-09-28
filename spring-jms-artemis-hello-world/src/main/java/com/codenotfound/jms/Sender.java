@@ -7,14 +7,13 @@ import org.springframework.jms.core.JmsTemplate;
 
 public class Sender {
 
-  private static final Logger LOGGER =
-      LoggerFactory.getLogger(Sender.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(Sender.class);
 
   @Autowired
   private JmsTemplate jmsTemplate;
 
   public void send(String message) {
     LOGGER.info("sending message='{}'", message);
-    jmsTemplate.convertAndSend("helloworld.a", message);
+    jmsTemplate.convertAndSend("myqueue", message);
   }
 }
