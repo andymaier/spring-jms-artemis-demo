@@ -30,7 +30,7 @@ public class ReceiverConfig {
     return factory;
   }
 
-  @Bean
+  //@Bean
   public Receiver receiver() {
     return new Receiver();
   }
