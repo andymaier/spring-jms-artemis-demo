@@ -8,7 +8,6 @@ import javax.json.Json;
 import javax.json.JsonObject;
 
 import com.codenotfound.jms.Receiver;
-import com.codenotfound.jms.ReceiverConfig;
 import com.codenotfound.jms.Sender;
 
 import org.apache.activemq.artemis.junit.EmbeddedJMSResource;
@@ -24,7 +23,6 @@ import static java.lang.Math.round;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@EnableAutoConfiguration(exclude=ReceiverConfig.class)
 public class SpringJmsApplicationTest {
 
   @Rule
@@ -55,7 +53,7 @@ public class SpringJmsApplicationTest {
   public void artemisIsFaster() {
     long t1 = System.currentTimeMillis();
 
-    for (int i = 1; i <= 1_000_000; i++) {
+    for (int i = 1; i <= 100_000; i++) {
 
       JsonObject json = Json.createObjectBuilder().add("windrad", 6).add("kw/h", 33).build();
 

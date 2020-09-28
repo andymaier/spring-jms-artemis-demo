@@ -4,7 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Sender {
 
   private static final Logger LOGGER =
@@ -15,6 +17,6 @@ public class Sender {
 
   public void send(String message) {
     LOGGER.info("sending message='{}'", message);
-    jmsTemplate.convertAndSend("helloworld.a", message);
+    jmsTemplate.convertAndSend("helloworld.q", message);
   }
 }
